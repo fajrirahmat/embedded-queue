@@ -41,7 +41,7 @@ func (s *Subcriber) Subcsribe(f func(interface{}) error) error {
 	for d := range s.forward {
 		err := f(d)
 		if err != nil {
-			return err
+			log.Printf("Error subscribe: %s\n", err.Error())
 		}
 	}
 	return nil
